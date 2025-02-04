@@ -1,0 +1,420 @@
+html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Mental Health Support
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   @keyframes typing {
+     from { width: 0; }
+     to { width: 100%; }
+   }
+
+   @keyframes blink-caret {
+     from, to { border-color: transparent; }
+     50% { border-color: black; }
+   }
+
+   .typing {
+     overflow: hidden;
+     white-space: nowrap;
+     border-right: .15em solid black;
+     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+   }
+  </style>
+  <script>
+   function showSection(sectionId) {
+     const sections = document.querySelectorAll('section');
+     sections.forEach(section => {
+       section.classList.add('hidden');
+     });
+     document.getElementById(sectionId).classList.remove('hidden');
+   }
+
+   function toggleDropdown() {
+     document.getElementById('dropdown').classList.toggle('hidden');
+   }
+
+   function filterResources() {
+     const condition = document.getElementById('conditionFilter').value.toLowerCase();
+     const resources = document.querySelectorAll('.resource-item');
+     resources.forEach(resource => {
+       const resourceCondition = resource.getAttribute('data-condition').toLowerCase();
+       if (resourceCondition.includes(condition)) {
+         resource.classList.remove('hidden');
+       } else {
+         resource.classList.add('hidden');
+       }
+     });
+   }
+  </script>
+ </head>
+ <body class="bg-gray-100 font-roboto">
+  <header class="bg-blue-600 text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">
+     Mental Health Support
+    </h1>
+    <nav class="relative">
+     <button class="hover:underline cursor-pointer" onclick="toggleDropdown()">
+      Click for Info
+     </button>
+     <ul id="dropdown" class="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg hidden">
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('home')">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('resources')">
+        Resources
+       </a>
+      </li>
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('support-groups')">
+        Support Groups
+       </a>
+      </li>
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('submit-resource')">
+        Submit a Resource
+       </a>
+      </li>
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('find-doctor')">
+        Find a Doctor
+       </a>
+      </li>
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('contact')">
+        Contact
+       </a>
+      </li>
+      <li>
+       <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer" onclick="showSection('extra-help')">
+        Extra Help
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main class="container mx-auto p-4">
+   <section id="home" class="mb-8">
+    <div class="bg-white p-6 rounded shadow-md">
+     <h2 class="text-xl font-bold mb-4 typing">
+      Welcome to Mental Health Support
+     </h2>
+     <p class="mb-4">
+      We are dedicated to providing resources and support for individuals struggling with mental health issues. Our goal is to create a safe and supportive community where you can find the help you need.
+     </p>
+     <img alt="A supportive community gathering to discuss mental health issues" class="w-full rounded" height="400" src="https://storage.googleapis.com/a1aa/image/OUXwf6goU81tvfduInDgm7pipsauF1JaRKdZTtNqu2g.jpg" width="600"/>
+     <div class="mt-4">
+      <h3 class="text-lg font-bold mb-2">
+       Quotes on Mental Health
+      </h3>
+      <ul class="list-disc pl-5">
+       <li class="mb-2">
+        "Mental health is not a destination, but a process. It's about how you drive, not where you're going." - Noam Shpancer
+       </li>
+       <li class="mb-2">
+        "You, yourself, as much as anybody in the entire universe, deserve your love and affection." - Buddha
+       </li>
+       <li class="mb-2">
+        "What mental health needs is more sunlight, more candor, and more unashamed conversation." - Glenn Close
+       </li>
+       <li class="mb-2">
+        "Your mental health is a priority. Your happiness is an essential. Your self-care is a necessity." - Unknown
+       </li>
+       <li class="mb-2">
+        "Healing takes time, and asking for help is a courageous step." - Mariska Hargitay
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <section id="resources" class="mb-8 hidden">
+    <h2 class="text-xl font-bold mb-4">
+     Resources
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+     <div class="bg-white p-4 rounded shadow-md resource-item" data-condition="anxiety">
+      <h3 class="text-lg font-bold mb-2">
+       Articles
+      </h3>
+      <p class="mb-2">
+       Read articles on various mental health topics written by experts.
+      </p>
+      <img alt="A person reading an article on mental health" class="w-full rounded mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/riXVs5rLPu61hbvR8jObR9mp51ehkjNpGXDhLoWRUhU.jpg" width="300"/>
+      <a class="text-blue-600 hover:underline" href="#">
+       Read More
+      </a>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md resource-item" data-condition="depression">
+      <h3 class="text-lg font-bold mb-2">
+       Videos
+      </h3>
+      <p class="mb-2">
+       Watch videos that provide insights and tips on managing mental health.
+      </p>
+      <img alt="A person watching a mental health video on a laptop" class="w-full rounded mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/1mFSIhZfTOtQMC_YZ4QV8C87og8GcE-QJ8DNf-sf5sg.jpg" width="300"/>
+      <a class="text-blue-600 hover:underline" href="#">
+       Watch Now
+      </a>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md resource-item" data-condition="ptsd">
+      <h3 class="text-lg font-bold mb-2">
+       Podcasts
+      </h3>
+      <p class="mb-2">
+       Listen to podcasts featuring mental health professionals and advocates.
+      </p>
+      <img alt="A person listening to a mental health podcast on headphones" class="w-full rounded mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/lHeECnc7f1m4W54jrDcbqZ-5BKAz_37l5mb9yiRbr1I.jpg" width="300"/>
+      <a class="text-blue-600 hover:underline" href="#">
+       Listen Now
+      </a>
+     </div>
+    </div>
+   </section>
+   <section id="support-groups" class="mb-8 hidden">
+    <h2 class="text-xl font-bold mb-4">
+     Support Groups
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+     <div class="bg-white p-4 rounded shadow-md resource-item" data-condition="anxiety">
+      <h3 class="text-lg font-bold mb-2">
+       Anxiety Support
+      </h3>
+      <p class="mb-2">
+       Join our support group for individuals dealing with anxiety.
+      </p>
+      <img alt="A group of people in a support group session for anxiety" class="w-full rounded mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/GE9PVHVrtph8oHraViIogvL5mwg5721kjzNfz4mGL_0.jpg" width="300"/>
+      <a class="text-blue-600 hover:underline" href="#">
+       Join Now
+      </a>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md resource-item" data-condition="depression">
+      <h3 class="text-lg font-bold mb-2">
+       Depression Support
+      </h3>
+      <p class="mb-2">
+       Connect with others who understand what you're going through.
+      </p>
+      <img alt="A group of people in a support group session for depression" class="w-full rounded mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/3vTydDCEmesfHuO5BVh52mr4Di65oH_tVCVeRK7kv3Y.jpg" width="300"/>
+      <a class="text-blue-600 hover:underline" href="#">
+       Join Now
+      </a>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md resource-item" data-condition="ptsd">
+      <h3 class="text-lg font-bold mb-2">
+       PTSD Support
+      </h3>
+      <p class="mb-2">
+       Find support and resources for managing PTSD.
+      </p>
+      <img alt="A group of people in a support group session for PTSD" class="w-full rounded mb-2" height="200" src="https://storage.googleapis.com/a1aa/image/JQyg2MA5LL9enB95bLBxfvH7-FiiCbSx6Z9pFCryCGk.jpg" width="300"/>
+      <a class="text-blue-600 hover:underline" href="#">
+       Join Now
+      </a>
+     </div>
+    </div>
+   </section>
+   <section id="submit-resource" class="mb-8 hidden">
+    <h2 class="text-xl font-bold mb-4">
+     Submit a Resource
+    </h2>
+    <div class="bg-white p-6 rounded shadow-md">
+     <form>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="resourceName">
+        Resource Name
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="resourceName" placeholder="Resource Name" type="text"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="resourceType">
+        Resource Type
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="resourceType">
+        <option value="article">
+         Article
+        </option>
+        <option value="video">
+         Video
+        </option>
+        <option value="podcast">
+         Podcast
+        </option>
+        <option value="supportGroup">
+         Support Group
+        </option>
+       </select>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="resourceURL">
+        Resource URL
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="resourceURL" placeholder="Resource URL" type="url"/>
+      </div>
+      <button class="bg-blue-600 text-white p-2 rounded" type="submit">
+       Submit Resource
+      </button>
+     </form>
+    </div>
+   </section>
+   <section id="find-doctor" class="mb-8 hidden">
+    <h2 class="text-xl font-bold mb-4">
+     Find a Doctor
+    </h2>
+    <div class="bg-white p-6 rounded shadow-md">
+     <form>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="condition">
+        Your Condition
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="condition" placeholder="Describe your condition" type="text"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="location">
+        Your Location
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="location" placeholder="Your Location" type="text"/>
+      </div>
+      <button class="bg-blue-600 text-white p-2 rounded" type="submit">
+       Find a Doctor
+      </button>
+     </form>
+    </div>
+   </section>
+   <section id="contact" class="mb-8 hidden">
+    <h2 class="text-xl font-bold mb-4">
+     Contact Us
+    </h2>
+    <div class="bg-white p-6 rounded shadow-md">
+     <form>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="name">
+        Name
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="name" placeholder="Your Name" type="text"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="email">
+        Email
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="email" placeholder="Your Email" type="email"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="message">
+        Message
+       </label>
+       <textarea class="w-full p-2 border border-gray-300 rounded" id="message" placeholder="Your Message" rows="4"></textarea>
+      </div>
+      <button class="bg-blue-600 text-white p-2 rounded" type="submit">
+       Send Message
+      </button>
+     </form>
+    </div>
+   </section>
+   <section id="extra-help" class="mb-8 hidden">
+    <h2 class="text-xl font-bold mb-4">
+     Extra Help
+    </h2>
+    <div class="bg-white p-6 rounded shadow-md">
+     <form>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="extraHelpName">
+        Your Name
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="extraHelpName" placeholder="Your Name" type="text"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700 mb-2" for="extraHelpCondition">
+        Your Condition
+       </label>
+       <input class="w-full p-2 border border-gray-300 rounded" id="extraHelpCondition" placeholder="Your Condition" type="text"/>
+      </div>
+      <button class="bg-blue-600 text-white p-2 rounded" type="submit">
+       Get Help
+      </button>
+     </form>
+     <div class="mt-4">
+      <h3 class="text-lg font-bold mb-2">
+       Global Mental Health Resources
+      </h3>
+      <ul class="list-disc pl-5">
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.mentalhealth.gov/">
+         MentalHealth.gov - U.S. Department of Health & Human Services
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.mind.org.uk/">
+         Mind - UK Mental Health Charity
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.beyondblue.org.au/">
+         Beyond Blue - Australian Mental Health Support
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.cmha.ca/">
+         Canadian Mental Health Association
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.samhsa.gov/">
+         SAMHSA - Substance Abuse and Mental Health Services Administration
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.who.int/mental_health/en/">
+         WHO - World Health Organization Mental Health
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.mentalhealth.org.nz/">
+         Mental Health Foundation of New Zealand
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.mentalhealthireland.ie/">
+         Mental Health Ireland
+        </a>
+       </li>
+       <li class="mb-2">
+          <a class="text-blue-600 hover:underline" href="https://www.mentalhealth.org.nz/">Mental Health Foundation of New Zealand</a>
+       </li>
+       <li class="mb-2">
+        <a class="text-blue-600 hover:underline" href="https://www.mentalhealthireland.ie/">Mental Health Ireland</a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <section id="testimonials" class="mb-8">
+    <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <p>"This service was incredibly helpful in resolving my legal issues!"</p>
+            <p class="mt-2 font-bold">- Client Name</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <p>"I highly recommend the Justice Hub for their professionalism and expertise."</p>
+            <p class="mt-2 font-bold">- Client Name</p>
+        </div>
+        <!-- Add more testimonials as needed -->
+    </div>
+</section>
+  </main>
+  <footer class="bg-blue-600 text-white p-4 text-center">
+   <p>&copy; 2023 Mental Health Support - Decentralized Justice Hub</p>
+  </footer>
+ </body>
+</html>
