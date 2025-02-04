@@ -56,5 +56,5 @@ Inspired by the need for accessible mental health information and support.
 Contact
 For any inquiries or feedback, please contact:
 
-Email: your.email@example.com
-GitHub: yourusername
+Email: joscollins2@gmail.com
+GitHub: Shadow-walker360
